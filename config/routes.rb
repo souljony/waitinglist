@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+	root "lista#index"
+
   resources :clientes do
   	collection do
   	  get :graficos

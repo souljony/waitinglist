@@ -1,0 +1,3 @@
+<h1>Estatísticas</h1>
+<center><h4>Número de Visitas por Cliente</h4></center>
+<%= bar_chart @listums.group(:nome).count %>

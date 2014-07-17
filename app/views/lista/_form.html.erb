@@ -1,0 +1,37 @@
+<div class="col-md-6 col-md-offset-3">
+<%= form_for @listum, class: "form-horizontal" do |f| %>
+  <% if @listum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listum.errors.count, "error") %> prohibited this listum from being saved:</h2>
+
+      <ul>
+      <% @listum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome, "Nome do Cliente" %><br>
+    <%= f.autocomplete_field :nome, autocomplete_cliente_nome_lista_path, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :pax, "Número de Pessoas" %><br>
+    <%= f.number_field :pax, value: "1", class: "form-control" %>
+  </div>
+  <div class="field" style="display: none;">
+    <%= f.label :sentado %><br>
+    <%= f.check_box :sentado %>
+  </div>
+  <div class="field" style="display: none;">
+    <%= f.label :sentado_em %><br>
+    <%= f.datetime_select :sentado_em %>
+  </div>
+  <div class="actions">
+    <center><%= f.submit class: "btn btn-large btn-success ", value: "Adicionar" %>
+    <%= link_to 'Voltar', lista_path, class: "btn btn-large btn-normal" %>
+    </center>
+  </div>
+<% end %>
+</div>

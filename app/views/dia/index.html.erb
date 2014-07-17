@@ -1,0 +1,31 @@
+<center>
+<h1>Dia Aberto:</h1>
+<h2><%= @dia.last.created_at.strftime('%d/%m') %></h2>
+<br/>
+<% if @dia.last.created_at.strftime('%d/%m') != Time.now.strftime('%d/%m') %>
+<%= link_to 'Abrir Novo Dia', new_dium_path, class: "btn btn-large btn-primary" %>
+<% else %>
+<i>O dia de hoje já foi aberto.</i>
+<% end %>
+</center>
+
+<h3>Dias Passados:</h3>
+<table class="table table striped">
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dia.each do |dium| %>
+      <tr>
+        <td><%= dium.created_at %></td>
+        <td><%= link_to 'Show', dium %></td>
+        <td><%= link_to 'Edit', edit_dium_path(dium) %></td>
+        <td><%= link_to 'Destroy', dium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

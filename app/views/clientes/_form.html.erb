@@ -1,0 +1,25 @@
+<%= form_for(@cliente) do |f| %>
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome, "Nome do Cliente" %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :vip, "VIP" %><br>
+    <%= f.check_box :vip %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-large btn-success", value: "Adicionar" %>
+  </div>
+<% end %>

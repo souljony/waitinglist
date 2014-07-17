@@ -1,0 +1,73 @@
+<center><h1>Lista de Espera Eletrónica</h1></center>
+
+<% if Dium.last.created_at.strftime('%d/%m') != Time.now.strftime('%d/%m') %>
+<center>Atenção: lista desatualizada. Abrir novo dia.</center>
+<% else %>
+<% end %>
+
+<h2>Pessoas NÃO sentadas </h2>
+<table class="table table-stripped table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nome</th>
+      <th>Pax</th>
+      <th>Estado do Seating</th>
+      <th>Check in em</th>
+      <th colspan="4">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lista.where(sentado: false).each_with_index do |listum, i| %>
+    <% if @clientes.find_by(nome: listum.nome).vip %>
+      	<tr class="info">
+    <% else %>
+    	<tr>
+    <% end %>
+      	<td>
+      	<center><b><%= i += 1 %></b></center>
+      	</td>
+        <td><%= listum.nome %></td>
+        <td><%= listum.pax %></td>
+        <td><%= listum.sentado? ? 'Sentado' : 'Por Sentar' %></td>
+        <td><%= listum.sentado_em %></td>
+        <td><%= link_to 'Sentar', sentar_listum_path(listum), method: :sentar, class: "btn btn-s btn-success" %></td>
+        <td><%= link_to 'Detalhes', listum, class: "btn btn-s btn-info" %></td>
+        <td><%= link_to 'Editar', edit_listum_path(listum), class: "btn btn-s btn-default" %></td>
+        <td><%= link_to 'Eliminar', listum, method: :delete, data: { confirm: 'Atenção: esta acção apenas deve ser utilizada por erro de inserção!' },  class: "btn btn-s btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<center><%= link_to 'Adicionar Cliente', new_listum_path, class: "btn btn-large btn-primary" %></center>
+
+<br>
+<h2>Pessoas Sentadas </h2>
+<table class="table table-stripped table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Pax</th>
+      <th>Sentado em</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lista.where(sentado: true).find_each do |listum| %>
+      <tr>
+        <td><%= listum.nome %></td>
+        <td><%= listum.pax %></td>
+        <td><%= listum.sentado_em %></td>
+        <td><%= link_to 'Levantar', sentar_listum_path(listum), method: :sentar, class: "btn btn-xs btn-success" %></td>
+        <td><%= link_to 'Detalhes', listum, class: "btn btn-xs btn-info" %></td>
+        <td><%= link_to 'Editar', edit_listum_path(listum), class: "btn btn-xs btn-default" %></td>
+        <td><%= link_to 'Eliminar', listum, method: :delete, data: { confirm: 'Atenção: esta acção apenas deve ser utilizada por erro de inserção!' },  class: "btn btn-xs btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

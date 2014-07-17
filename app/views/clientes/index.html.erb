@@ -1,0 +1,30 @@
+<h1>Lista de Clientes</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>VIP</th>
+      <th colspan="3">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <% if cliente.vip %>
+      <tr class="info">
+      <% else %>
+      <tr>
+      <% end %>
+        <td><%= cliente.nome %></td>
+        <td><%= cliente.vip? ? 'Sim' : 'Não' %></td>
+        <td><%= link_to 'Show', cliente, class: "btn btn-xs btn-info" %></td>
+        <td><%= link_to 'Edit', edit_cliente_path(cliente), class: "btn btn-xs btn-default" %></td>
+        <td><%= link_to 'Destroy', cliente, method: :delete, class: "btn btn-xs btn-danger", data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+     <% end %>
+  </tbody>
+</table>
+
+<center><%= link_to 'Adicionar Cliente', new_cliente_path, class: "btn btn-large btn-primary" %></center>
+<br>

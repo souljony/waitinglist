@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :clientes do
+  	collection do
+  	  get :graficos
+  	end
+  end    
+  resources :dia
+
+  resources :lista do
+  get :autocomplete_cliente_nome, :on => :collection
+    member do
+    	post :sentar
+    end   
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

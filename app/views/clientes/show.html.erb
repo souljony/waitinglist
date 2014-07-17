@@ -1,0 +1,32 @@
+<h1>Detalhes do Cliente</h1>
+
+<br>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cliente.nome %>
+</p>
+
+<p>
+  <strong>VIP:</strong>
+  <%= @cliente.vip? ? 'Sim' : 'Não' %>
+</p>
+
+<p>
+  <strong>Última Visita:</strong>
+  <%= @cliente.listums.last.created_at.strftime("%d/%m/%y às %H:%M") %>
+</p>
+
+<p>
+  <strong>Número de Visitas do Cliente:</strong>
+  <%= @cliente.listums.count %>
+</p>
+
+<p>
+  <strong>Número de Pessoas que o Cliente já trouxe:</strong>
+  <%= @cliente.listums.sum(:pax) %>
+</p>
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>

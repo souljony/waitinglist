@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @listum.nome %> <i>(<%= @listum.cliente_id %>)</i>
+</p>
+
+<p>
+  <strong>Pax:</strong>
+  <%= @listum.pax %>
+</p>
+
+<p>
+  <strong>Sentado:</strong>
+  <%= @listum.sentado %>
+</p>
+
+<p>
+  <strong>Sentado em:</strong>
+  <%= @listum.sentado_em %>
+</p>
+
+<p>
+  <strong>ID do Cliente:</strong>
+  <%= @listum.cliente_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_listum_path(@listum) %> |
+<%= link_to 'Back', lista_path %>

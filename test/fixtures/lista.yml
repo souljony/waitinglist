@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  pax: 1
+  sentado: false
+  sentado_em: 2014-06-17 14:50:32
+
+two:
+  nome: MyString
+  pax: 1
+  sentado: false
+  sentado_em: 2014-06-17 14:50:32

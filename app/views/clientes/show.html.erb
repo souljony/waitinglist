@@ -15,7 +15,11 @@
 
 <p>
   <strong>Última Visita:</strong>
-  <%= @cliente.listums.last.created_at.strftime("%d/%m/%y às %H:%M") %>
+  <% if @cliente.listums.last.blank? %>
+  Cliente ainda não visitou 
+  <% else %>
+  <%= @cliente.listums.last.sentado_em.strftime("%d/%m/%y às %H:%M") %>
+  <% end %>
 </p>
 
 <p>

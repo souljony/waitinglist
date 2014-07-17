@@ -12,7 +12,8 @@ class ListaController < ApplicationController
   # GET /lista
   # GET /lista.json
   def index
-    @lista = Listum.where("strftime('%m/%d', created_at) = ?", Dium.last.created_at.strftime('%m/%d'))
+     @lista = Listum.where("TO_CHAR(created_at, 'MM-DD') = ?", Dium.last.created_at.strftime("%m-%d"))
+    @listaback = Listum.where("strftime('%m/%d', created_at) = ?", 	Dium.last.created_at.strftime('%m/%d'))
     @clientes = Cliente.all
   end
 

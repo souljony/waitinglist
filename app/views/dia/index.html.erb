@@ -14,7 +14,7 @@
   <thead>
     <tr>
       <th>Dia</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -22,9 +22,8 @@
     <% @dia.each do |dium| %>
       <tr>
         <td><%= dium.created_at %></td>
-        <td><%= link_to 'Show', dium %></td>
-        <td><%= link_to 'Edit', edit_dium_path(dium) %></td>
-        <td><%= link_to 'Destroy', dium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalhes', dium %></td>
+        <td><%= link_to 'Eliminar', dium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

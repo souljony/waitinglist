@@ -1,8 +1,11 @@
+<div class="col-md-6 col-md-offset-3">
+<h1>Detalhes da Posição na Lista</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Nome:</strong>
-  <%= @listum.nome %> <i>(<%= @listum.cliente_id %>)</i>
+  <%= @listum.nome %></i>
 </p>
 
 <p>
@@ -20,11 +23,8 @@
   <%= @listum.sentado_em %>
 </p>
 
-<p>
-  <strong>ID do Cliente:</strong>
-  <%= @listum.cliente_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_listum_path(@listum) %> |
-<%= link_to 'Back', lista_path %>
+<center>
+<%= link_to 'Editar', edit_listum_path(@listum), class: "btn btn-large btn-success" %>
+<%= link_to 'Voltar', lista_path, class: "btn btn-xs btn-primary" %>
+</center>
+</div>

@@ -12,6 +12,8 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <center><%= f.submit class: "btn btn-large btn-success", value: "Abrir Novo Dia" %>
+    <%= link_to 'Voltar', dia_path, class: "btn btn-xs btn-primary" %>
+</center>
   </div>
 <% end %>

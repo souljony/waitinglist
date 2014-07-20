@@ -1,4 +1,4 @@
-<%= form_for(@cliente) do |f| %>
+<%= form_for @cliente, class: "form-horizontal" do |f| %>
   <% if @cliente.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
@@ -13,13 +13,14 @@
 
   <div class="field">
     <%= f.label :nome, "Nome do Cliente" %><br>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :vip, "VIP" %><br>
-    <%= f.check_box :vip %>
+    <%= f.check_box :vip, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-large btn-success", value: "Adicionar" %>
+    <center><%= f.submit class: "btn btn-large btn-success", value: "Adicionar" %>
+<%= link_to 'Voltar', clientes_path, class: "btn btn-xs btn-primary" %></center>
   </div>
 <% end %>

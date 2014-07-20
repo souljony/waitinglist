@@ -27,7 +27,7 @@ class DiaController < ApplicationController
     @dium = Dium.new(dium_params)
     respond_to do |format|
       if @dium.save
-        format.html { redirect_to @dium, notice: 'Dium was successfully created.' }
+        format.html { redirect_to @dium, notice: 'O Dia foi Aberto!' }
         format.json { render :show, status: :created, location: @dium }
       else
         format.html { render :new }

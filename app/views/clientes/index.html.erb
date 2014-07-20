@@ -18,13 +18,13 @@
       <% end %>
         <td><%= cliente.nome %></td>
         <td><%= cliente.vip? ? 'Sim' : 'Não' %></td>
-        <td><%= link_to 'Show', cliente, class: "btn btn-xs btn-info" %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente), class: "btn btn-xs btn-default" %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, class: "btn btn-xs btn-danger", data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalhes', cliente, class: "btn btn-xs btn-info" %></td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente), class: "btn btn-xs btn-default" %></td>
+        <td><%= link_to 'Eliminar', cliente, method: :delete, class: "btn btn-xs btn-danger", data: { confirm: 'Tem a certeza? O cliente será eliminado!' } %></td>
       </tr>
      <% end %>
   </tbody>
 </table>
 
-<center><%= link_to 'Adicionar Cliente', new_cliente_path, class: "btn btn-large btn-primary" %></center>
+<center><%= link_to 'Adicionar Novo Cliente', new_cliente_path, class: "btn btn-large btn-primary" %></center>
 <br>

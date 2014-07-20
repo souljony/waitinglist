@@ -6,6 +6,7 @@
 <% end %>
 
 <h2>Pessoas NÃO sentadas </h2>
+<div class="table-responsive">
 <table class="table table-stripped table-hover">
   <thead>
     <tr>
@@ -40,12 +41,14 @@
     <% end %>
   </tbody>
 </table>
+</div>
 <br>
 
 <center><%= link_to 'Adicionar Cliente', new_listum_path, class: "btn btn-large btn-primary" %></center>
 
 <br>
 <h2>Pessoas Sentadas </h2>
+<div class="table-responsive">
 <table class="table table-stripped table-hover">
   <thead>
     <tr>
@@ -70,4 +73,5 @@
     <% end %>
   </tbody>
 </table>
+</div>
 <br>
